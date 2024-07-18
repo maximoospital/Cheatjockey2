@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cheatjockey2.MainPage">
+    <Grid RowDefinitions="Auto,*,Auto" BackgroundColor="#333333">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto, Auto" Margin="30,20,30,20">
+            <Button x:Name="SubmitButton" Grid.Column="0" Text="Submit" Margin="0,0,0,0" Padding="25,0" Clicked="SubmitButton_Click" />
+            <Entry x:Name="URLLink" Grid.Column="1" Placeholder="Enter URL" Margin="10,0,0,0" HorizontalOptions="FillAndExpand" BackgroundColor="#222222"/>
+            <Button x:Name="SearchButton" Grid.Column="2" Text="&#xe721;" FontFamily="SegoeFluentIcons" FontSize="Small" BackgroundColor="#333333" TextColor="White" Margin="0,0,0,0" Clicked="SearchButton_Click"/>
+            <Button x:Name="SettingsButton" Grid.Column="3" Text="&#xe713;" FontFamily="SegoeFluentIcons" FontSize="Small" BackgroundColor="#333333" TextColor="White" Margin="0,0,10,0" Clicked="SettingsButton_Click"/>
+        </Grid>
+        <ScrollView Grid.Row="1" BackgroundColor="#222222">
+            <VerticalStackLayout Padding="30,20" Spacing="25">
+                <!-- CollectionView for horizontal cards -->
+                <CollectionView ItemsSource="{Binding DownloadLinks}" 
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" 
+                                        ItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="10" 
+                                Padding="10" 
+                                Margin="5" 
+                                HasShadow="True" 
+                                BackgroundColor="#333333">
+                                    <Grid ColumnDefinitions="*, Auto, Auto">
+                                        <StackLayout Orientation="Vertical" Grid.Column="0">
+                                            <Label Text="{Binding URL}" 
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Start" 
+                                                TextColor="Gray"
+                                                FontAttributes="Italic"
+                                                FontSize="12"
+                                                Margin="10,0"/>
+                                            <Label Text="{Binding Title}" 
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Start" 
+                                                Margin="10,0"/>
+                                            <Label Text="{Binding StatusInfo}" 
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Start" 
+                                                TextColor="LightGray"
+                                                Margin="10,0"/>
+                                        </StackLayout>
+                                        <Button x:Name="FolderButton" Grid.Column="1" Text="&#xe8b7;" FontSize="Small" BackgroundColor="#333333" TextColor="White" FontFamily="SegoeFluentIcons" Margin="10,0,0,0" Clicked="FolderButton_Click"/>
+                                        <Button x:Name="MoreButton" Grid.Column="2" Text="&#xe712;" FontSize="Small" BackgroundColor="#333333" TextColor="White" FontFamily="SegoeFluentIcons" Margin="0,0,0,0" Clicked="MoreButton_Click"/>
+                                    </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <Grid Grid.Row="2" HeightRequest="30" BackgroundColor="#333333">
+                            <Label HorizontalOptions="Center" Padding="10,5,0,0" Text="Submit a link to start downloading." />
+                        </Grid>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid Grid.Row="2" HeightRequest="30" BackgroundColor="#333333">
+            <Label HorizontalOptions="Start" Padding="10,5,0,0" Text="Cheatjockey 2 v1.0" />
+        </Grid>
+    </Grid>
+</ContentPage>
