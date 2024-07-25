@@ -10,9 +10,12 @@ public class CardItem
     private string type;
     private string format;
     private string duration;
-    private string tracks;
+    public int TrackCount { get; set; }
+    public string Tracks
+    {
+        get => TrackCount > 1 ? $"{TrackCount} Tracks" : $"{TrackCount} Track";
+    }
     private string output;
-
 
     public string URL
     {
@@ -32,17 +35,6 @@ public class CardItem
             name = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(Title));
-        }
-    }
-
-    public string Tracks
-    {
-        get => tracks;
-        set
-        {
-            tracks = value;
-            OnPropertyChanged();
-            OnPropertyChanged(nameof(StatusInfo));
         }
     }
     public string Duration
@@ -77,7 +69,10 @@ public class CardItem
 
     public string Title => $"{Name}";
     public string StatusInfo => $"{Tracks} - {Duration} - {Format}";
-
+    public string TypeIcon
+    {
+        get => TrackCount > 1 ? "\ue93c" : "\uec4f";
+    }
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

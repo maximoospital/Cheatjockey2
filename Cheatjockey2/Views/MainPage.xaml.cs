@@ -1,3 +1,6 @@
+using CommunityToolkit.Maui.Views;
+using Microsoft.Maui.Controls;
+
 namespace Cheatjockey2;
 
 public partial class MainPage : ContentPage
@@ -23,10 +26,9 @@ public partial class MainPage : ContentPage
 		Console.WriteLine($"Searched: {count}");
 	}
 
-	private void SettingsButton_Click(object sender, EventArgs e)
+	private async void SettingsButton_Click(object sender, EventArgs e)
 	{
-		count++;
-		Console.WriteLine($"Settings: {count}");
+   	 await Shell.Current.GoToAsync("///SettingsPage");
 	}
 
 	private void FolderButton_Click(object sender, EventArgs e)

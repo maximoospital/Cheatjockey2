@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cheatjockey2.SettingsPage">
+    <Grid RowDefinitions="Auto,*,Auto" BackgroundColor="#333333">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Margin="30,20,30,20">
+            <Button x:Name="BackButton" Grid.Column="0" Text="&#xe72b;" FontFamily="SegoeFluentIcons" FontSize="Small" BackgroundColor="Transparent" TextColor="White" Margin="0,0,0,0" Clicked="OnBackButtonClicked" ToolTipProperties.Text="Go Back">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="PointerOver">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="DarkGray" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="Gray" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+            <Label Grid.Column="1" Text="Settings" FontSize="Large" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <BoxView Grid.Column="2" WidthRequest="0" />
+        </Grid>
+        <ScrollView Grid.Row="1" BackgroundColor="#222222">
+            <StackLayout Padding="20" Spacing="10">
+                <HorizontalStackLayout Spacing="10"> 
+                    <Label Text="Output" FontSize="Medium" TextColor="White" />
+                    <Label Text="Set the folder your songs are going to be stored in." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" /> 
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Metadata" FontSize="Medium" TextColor="White" />
+                    <Label Text="Enable adding relevant metatags to each song." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
+                </HorizontalStackLayout>        
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Format" FontSize="Medium" TextColor="White" />
+                    <Label Text="Choose the format to export the songs in (When available, if not, will resort to MP3)." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
+                </HorizontalStackLayout> 
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Binaries" FontSize="Medium" TextColor="White" />
+                    <Label Text="Check the binaries in use by this program." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
+                </HorizontalStackLayout> 
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="About" FontSize="Medium" TextColor="White" />
+                    <Label Text="Find out who made this, riveting!" FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
+                </HorizontalStackLayout> 
+                <StackLayout Spacing='5'>
+                    <Label Text="Cheatjockey 2 is an app by Maximo Ospital, made in .NET using MAUI." FontSize="Micro" TextColor="DarkGray" />    
+                    <Label Text="Feels unnecesary to state this but since it's more of a learning exercise than a product, don't expect quick updates." FontSize="Micro" TextColor="DarkGray" />    
+                    <Label Text="or any updates tbh." FontSize="Micro" TextColor="DarkGray" />    
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>        
+    </Grid>
+</ContentPage>
