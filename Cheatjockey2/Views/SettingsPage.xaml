@@ -32,26 +32,40 @@
         </Grid>
         <ScrollView Grid.Row="1" BackgroundColor="#222222">
             <StackLayout Padding="20" Spacing="10">
-                <HorizontalStackLayout Spacing="10"> 
-                    <Label Text="Output" FontSize="Medium" TextColor="White" />
-                    <Label Text="Set the folder your songs are going to be stored in." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" /> 
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="Metadata" FontSize="Medium" TextColor="White" />
-                    <Label Text="Enable adding relevant metatags to each song." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
-                </HorizontalStackLayout>        
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="Format" FontSize="Medium" TextColor="White" />
-                    <Label Text="Choose the format to export the songs in (When available, if not, will resort to MP3)." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
-                </HorizontalStackLayout> 
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="Binaries" FontSize="Medium" TextColor="White" />
-                    <Label Text="Check the binaries in use by this program." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
-                </HorizontalStackLayout> 
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="About" FontSize="Medium" TextColor="White" />
-                    <Label Text="Find out who made this, riveting!" FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
-                </HorizontalStackLayout> 
+                <VerticalStackLayout Spacing="5">
+                    <HorizontalStackLayout Spacing="10"> 
+                        <Label Text="Output" FontSize="Medium" TextColor="White" />
+                        <Label Text="Set the folder your songs are going to be stored in." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" /> 
+                    </HorizontalStackLayout>
+                    <Entry x:Name="OutputFolder" Text="{Binding OutputFolder}" Placeholder="Output Folder" TextColor="White" BackgroundColor="#444444" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="0">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Metadata" FontSize="Medium" TextColor="White" />
+                        <Label Text="Enable adding relevant metatags to each song." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
+                    </HorizontalStackLayout>              
+                    <Switch x:Name="MetadataEnabled" IsToggled="{Binding MetadataEnabled}" OnColor="#FFA500" ThumbColor="#FFA500" />          
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Format" FontSize="Medium" TextColor="White" />
+                        <Label Text="Choose the format to export the songs in (When available, if not, will resort to MP3)." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
+                    </HorizontalStackLayout>      
+                    <Picker x:Name="FormatPicker" SelectedIndex="{Binding FormatIndex}" TextColor="White" BackgroundColor="#444444" />           
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Binaries" FontSize="Medium" TextColor="White" />
+                        <Label Text="This program uses FFMpeg and Y-DL binaries." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
+                    </HorizontalStackLayout>
+                    <Button x:Name="BinariesButton" Text="Check Binary Updates" FontSize="Small" TextColor="White" BackgroundColor="#FFA500" Clicked="OnBinariesButtonClicked" />                 
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="About" FontSize="Medium" TextColor="White" />
+                        <Label Text="Find out who made this, riveting!" FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
+                    </HorizontalStackLayout> 
+                </VerticalStackLayout>
                 <StackLayout Spacing='5'>
                     <Label Text="Cheatjockey 2 is an app by Maximo Ospital, made in .NET using MAUI." FontSize="Micro" TextColor="DarkGray" />    
                     <Label Text="Feels unnecesary to state this but since it's more of a learning exercise than a product, don't expect quick updates." FontSize="Micro" TextColor="DarkGray" />    

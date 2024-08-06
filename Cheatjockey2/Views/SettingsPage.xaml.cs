@@ -14,25 +14,9 @@ namespace Cheatjockey2
             await Shell.Current.GoToAsync("//MainPage");            
         }
 
-		private void SearchButton_Click(object sender, EventArgs e)
-		{
-			count++;
-			Console.WriteLine($"Searched: {count}");
-		}
-
         private void OnGeneralSettingsClicked(object sender, EventArgs e)
         {
             // Load general settings content
-        }
-
-        private void OnAccountSettingsClicked(object sender, EventArgs e)
-        {
-            // Load account settings content
-        }
-
-        private void OnPrivacySettingsClicked(object sender, EventArgs e)
-        {
-            // Load privacy settings content
         }
 
     }
