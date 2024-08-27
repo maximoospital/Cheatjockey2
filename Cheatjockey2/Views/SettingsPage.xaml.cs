@@ -19,5 +19,11 @@ namespace Cheatjockey2
             // Load general settings content
         }
 
+        private void OnBinariesButtonClicked(object sender, EventArgs e)
+        {
+            // Load account settings content
+        }
+        
+
     }
 }

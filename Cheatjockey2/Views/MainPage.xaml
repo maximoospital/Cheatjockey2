@@ -5,13 +5,13 @@
              x:Class="Cheatjockey2.MainPage">
     <Grid RowDefinitions="Auto,*,Auto" BackgroundColor="#333333">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto, Auto" Margin="30,20,30,20">
-            <Button x:Name="SubmitButton" Text="Submit" Grid.Column="0" Clicked="SubmitButton_Click" ToolTipProperties.Text="Submit a link for download">
+            <Button x:Name="SubmitButton" Text="+ Paste Link" Grid.Column="0" Clicked="SubmitButton_Click" ToolTipProperties.Text="Submit a link for download. YouTube, Spotify, Tidal, Deezer, Apple Music, Vimeo, SoundCloud and BandCamp supported.">
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#FFAC99EA" />
+                                    <Setter Property="BackgroundColor" Value="#FFA500" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="PointerOver">
@@ -28,7 +28,7 @@
                     </VisualStateGroupList>
                 </VisualStateManager.VisualStateGroups>
             </Button>
-            <Entry x:Name="URLLink" Grid.Column="1" Placeholder="Enter URL" Margin="10,0,0,0" HorizontalOptions="FillAndExpand" BackgroundColor="#222222" ToolTipProperties.Text="Type a YouTube, Spotify, Tidal, Deezer, Apple Music, Vimeo, SoundCloud or BandCamp link to download.">
+            <Entry x:Name="URLLink" Grid.Column="1" Placeholder="Search among your downloads" Margin="10,0,0,0" HorizontalOptions="FillAndExpand" BackgroundColor="#222222" ToolTipProperties.Text="Filter your downloads.">
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
@@ -46,29 +46,6 @@
                     </VisualStateGroupList>
                 </VisualStateManager.VisualStateGroups>
             </Entry>
-            <Button x:Name="SearchButton" Grid.Column="2" Text="&#xe721;" FontFamily="SegoeFluentIcons" FontSize="Small" BackgroundColor="Transparent" TextColor="White" Margin="0,0,0,0" Clicked="SearchButton_Click" ToolTipProperties.Text="Filter downloaded items">
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroupList>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="TextColor" Value="White" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="PointerOver">
-                                <VisualState.Setters>
-                                    <Setter Property="TextColor" Value="DarkGray" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Pressed">
-                                <VisualState.Setters>
-                                    <Setter Property="TextColor" Value="Gray" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </VisualStateManager.VisualStateGroups>
-            </Button>
             <Button x:Name="SettingsButton" Grid.Column="3" Text="&#xe713;" FontFamily="SegoeFluentIcons" FontSize="Small" BackgroundColor="Transparent" TextColor="White" Margin="0,0,10,0" Clicked="SettingsButton_Click" ToolTipProperties.Text="Settings"> 
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroupList>

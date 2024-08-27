@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cheatjockey2.SettingsPage">
     <Grid RowDefinitions="Auto,*,Auto" BackgroundColor="#333333">
-        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Margin="30,20,30,20">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Margin="10,20,50,20">
             <Button x:Name="BackButton" Grid.Column="0" Text="&#xe72b;" FontFamily="SegoeFluentIcons" FontSize="Small" BackgroundColor="Transparent" TextColor="White" Margin="0,0,0,0" Clicked="OnBackButtonClicked" ToolTipProperties.Text="Go Back">
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroupList>
@@ -37,7 +37,49 @@
                         <Label Text="Output" FontSize="Medium" TextColor="White" />
                         <Label Text="Set the folder your songs are going to be stored in." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" /> 
                     </HorizontalStackLayout>
-                    <Entry x:Name="OutputFolder" Text="{Binding OutputFolder}" Placeholder="Output Folder" TextColor="White" BackgroundColor="#444444" />
+                    <Grid Grid.Row="0" ColumnDefinitions="*, Auto">
+                        <Entry x:Name="URLLink" Grid.Column="0" Placeholder="Search among your downloads" Margin="0,0,30,0" HorizontalOptions="FillAndExpand" BackgroundColor="#222222" ToolTipProperties.Text="Filter your downloads.">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroupList>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="#222222" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="#22222222" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </VisualStateManager.VisualStateGroups>
+                        </Entry>
+                        <Button x:Name="OutputFolderButton" Text="Select Folder" FontSize="Small" Grid.Column="1" TextColor="White" BackgroundColor="#FFA500" Clicked="OnOutputFolderButtonClicked" ToolTipProperties.Text="Choose an output folder">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroupList>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="#FFA500" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="DarkGray" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Gray" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </VisualStateManager.VisualStateGroups>
+                        </Button>               
+                    </Grid>
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="0">
                     <HorizontalStackLayout Spacing="10">
@@ -58,7 +100,29 @@
                         <Label Text="Binaries" FontSize="Medium" TextColor="White" />
                         <Label Text="This program uses FFMpeg and Y-DL binaries." FontSize="Micro" TextColor="DarkGray" VerticalTextAlignment="End" />    
                     </HorizontalStackLayout>
-                    <Button x:Name="BinariesButton" Text="Check Binary Updates" FontSize="Small" TextColor="White" BackgroundColor="#FFA500" Clicked="OnBinariesButtonClicked" />                 
+                    <Button x:Name="BinariesButton" Text="Re-Download Binaries" FontSize="Small" TextColor="White" BackgroundColor="#FFA500" Clicked="OnBinariesButtonClicked" ToolTipProperties.Text="Choose an output folder">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroupList>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="#FFA500" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="DarkGray" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Gray" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </VisualStateManager.VisualStateGroups>
+                        </Button>   
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="10">
                     <HorizontalStackLayout Spacing="10">
@@ -69,7 +133,6 @@
                 <StackLayout Spacing='5'>
                     <Label Text="Cheatjockey 2 is an app by Maximo Ospital, made in .NET using MAUI." FontSize="Micro" TextColor="DarkGray" />    
                     <Label Text="Feels unnecesary to state this but since it's more of a learning exercise than a product, don't expect quick updates." FontSize="Micro" TextColor="DarkGray" />    
-                    <Label Text="or any updates tbh." FontSize="Micro" TextColor="DarkGray" />    
                 </StackLayout>
             </StackLayout>
         </ScrollView>        

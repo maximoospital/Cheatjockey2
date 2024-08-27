@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "maui",
+			"project": "C:\\Users\\user\\Documents\\GitHub\\Cheatjockey2\\Cheatjockey2\\Cheatjockey2.csproj",
+			"problemMatcher": [
+				"$msCompile",
+				"maui-problem-matcher-location",
+				"maui-problem-matcher",
+				"maui-problem-matcher-location-multiline",
+				"maui-problem-matcher-multiline"
+			],
+			"label": "maui: Build"
+		}
+	]
+}
